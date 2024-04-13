@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Unraid文档-系统安装 | 嬗衍的博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://shanyan-wcx.github.io/gridea//favicon.ico?v=1713004107094">
+<link rel="stylesheet" href="https://shanyan-wcx.github.io/gridea//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+先决条件
+开始之前
+
+应该已经组装好服务器，并通过电源和以太网连接。
+应该连接显示器和键盘，以进行初始配置并准备修改BIOS中的配置设置。
+准备一个至少为2 GB但不大于32 GB的高质量、知名品牌的Upan，其中必须包含唯一的GUID（..." />
+    <meta name="keywords" content="Unraid" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://shanyan-wcx.github.io/gridea/">
+        <img src="https://shanyan-wcx.github.io/gridea//images/avatar.png?v=1713004107094" class="site-logo">
+        <h1 class="site-title">嬗衍的博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://shanyan-wcx.github.io/gridea//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Unraid文档-系统安装</h2>
+            <div class="post-date">2024-04-13</div>
+            
+              <div class="feature-container" style="background-image: url('https://s2.loli.net/2023/12/10/53PnM4uaFUXovyr.webp')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<h1 id="先决条件">先决条件</h1>
+<h2 id="开始之前">开始之前</h2>
+<ul>
+<li>应该已经组装好服务器，并通过电源和以太网连接。</li>
+<li>应该连接显示器和键盘，以进行初始配置并准备修改BIOS中的配置设置。</li>
+<li>准备一个至少为2 GB但不大于32 GB的高质量、知名品牌的Upan，其中必须包含唯一的GUID（全局唯一标识符）。</li>
+<li>系统必须能够从USB设备启动。</li>
+</ul>
+<h2 id="硬件要求">硬件要求</h2>
+<p>截至当前版本的Unraid OS发布时，最低的系统硬件要求如下：</p>
+<ul>
+<li>64位处理器，运行速度为1 GHz或更高。</li>
+<li>至少4 GB RAM用于基本NAS功能。</li>
+<li>Linux硬件驱动程序以支持存储、以太网和USB控制器。</li>
+<li>两块以上的硬盘来确保使用奇偶校验进行数据保护。</li>
+</ul>
+<h1 id="系统安装">系统安装</h1>
+<h2 id="创建启动u盘">创建启动U盘</h2>
+<p>首先下载<a href="https://unraid.net/download">USB Flash Creator</a>，并将U盘插入电脑。打开USB Flash Creator，点击右上角的国旗，选择简体中文。修改服务器名称，然后选择自己的U盘，并点击“写”来写入镜像。待写入完成后，点击关闭并拔下U盘，插入待安装系统的NAS。</p>
+<figure data-type="image" tabindex="1"><img src="https://s2.loli.net/2023/12/09/DBXudHTPs718hGU.png" alt="屏幕截图 2023-12-09 232317" loading="lazy"></figure>
+<h2 id="启动系统">启动系统</h2>
+<p>启动NAS，进入BIOS界面，开启硬件虚拟化特性（包括IOMMU），并设置U盘启动。保存BIOS设置并重启，将自动开始安装Unraid。安装完成后将在显示器上输出访问IP地址，在浏览器中访问该IP地址，跟随引导设置Unraid密码。</p>
+<figure data-type="image" tabindex="2"><img src="https://s2.loli.net/2023/12/09/sRKNHATyJBnfdlI.png" alt="Set_root_password-4ff6b82e5658cb5c8fb377baf3f53a8e" loading="lazy"></figure>
+<p>设置完成后进入管理后台，至此，Unraid系统安装完毕，进入系统设置环节。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://shanyan-wcx.github.io/gridea/tag/IE8pTKHKf/" class="tag">
+                    Unraid
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://shanyan-wcx.github.io/gridea/post/hello-gridea/">
+                  <h3 class="post-title">
+                    Hello Gridea
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'cb6bb4e1256298132b48',
+        clientSecret: '521dca02df06350aa0eee7ef0346db195fc5692c',
+        repo: 'gridea',
+        owner: 'shanyan-wcx',
+        admin: ['shanyan-wcx'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

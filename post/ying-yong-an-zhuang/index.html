@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Unraid文档-应用安装 | 嬗衍的博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://shanyan-wcx.github.io/gridea//favicon.ico?v=1713004107094">
+<link rel="stylesheet" href="https://shanyan-wcx.github.io/gridea//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="Unraid应用本质上就是Docker容器，而Unraid的应用市场提供了开发者们上传的各种容器的模板，可以简化用户的安装配置过程。
+在应用市场中选择要安装的应用，填写容器参数，点击应用即可自动完成应用安装。
+
+
+应用列表
+
+Clash —..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://shanyan-wcx.github.io/gridea/">
+        <img src="https://shanyan-wcx.github.io/gridea//images/avatar.png?v=1713004107094" class="site-logo">
+        <h1 class="site-title">嬗衍的博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://shanyan-wcx.github.io/gridea//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Unraid文档-应用安装</h2>
+            <div class="post-date">2024-04-13</div>
+            
+              <div class="feature-container" style="background-image: url('https://s2.loli.net/2023/12/10/53PnM4uaFUXovyr.webp')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>Unraid应用本质上就是Docker容器，而Unraid的应用市场提供了开发者们上传的各种容器的模板，可以简化用户的安装配置过程。</p>
+<p>在应用市场中选择要安装的应用，填写容器参数，点击应用即可自动完成应用安装。</p>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://s2.loli.net/2023/12/10/gHYlBQFNZOGj24R.png" alt="" loading="lazy"></figure>
+<h2 id="应用列表">应用列表</h2>
+<ul>
+<li><strong>Clash</strong> —— 网络代理工具</li>
+<li><strong>Postgresql15</strong> —— Postgre数据库</li>
+<li><strong>Redis</strong> —— 远程字典服务</li>
+<li><strong>AList</strong> —— 云盘挂载工具</li>
+<li><strong>Alist-Encrypt</strong> —— Alist加解密工具</li>
+<li><strong>MtPhotos-AI</strong> —— MtPhotos的智能识别服务</li>
+<li><strong>MtPhotos</strong> —— 相册</li>
+<li><strong>CookieCloud</strong> —— 同步Cookie</li>
+<li><strong>Navidrome</strong> —— 音乐管理</li>
+<li><strong>Audiobookshelf</strong> —— 有声书管理</li>
+<li><strong>Calibre-Web</strong> —— 电子书管理</li>
+<li><strong>Tachidesk</strong> —— 漫画管理</li>
+<li><strong>qBittorrent</strong> —— BT/PT下载器</li>
+<li><strong>ChineseSubFinder</strong> —— 自动搜索字幕</li>
+<li><strong>IYUUPlus</strong> —— 自动辅种工具</li>
+<li><strong>Jellyfin</strong> —— 影视管理</li>
+<li><strong>MoviePilot</strong> —— 观影追剧自动化工具</li>
+<li><strong>Nastool</strong> —— 观影追剧自动化工具（停止维护）</li>
+<li><strong>MediaServerTools</strong> —— 影视元数据替换中文</li>
+<li><strong>Keycloak</strong> —— OIDC验证服务</li>
+<li><strong>Outline</strong> —— 个人Wiki</li>
+<li><strong>QingLong</strong> —— 脚本自动运行面板</li>
+<li><strong>Halo</strong> —— 个人博客</li>
+<li><strong>Photo-Sync</strong> —— 阿里云盘同步</li>
+<li><strong>CloudflaredTunnel</strong> —— CF内网穿透</li>
+<li><strong>PortainerCI</strong> —— Docker管理面板</li>
+<li><strong>PgAdmin4</strong> —— 数据库管理面板</li>
+<li><strong>Yard</strong> —— Clash管理面板</li>
+</ul>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://shanyan-wcx.github.io/gridea/post/xi-tong-she-zhi/">
+                  <h3 class="post-title">
+                    Unraid文档-系统设置
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'cb6bb4e1256298132b48',
+        clientSecret: '521dca02df06350aa0eee7ef0346db195fc5692c',
+        repo: 'gridea',
+        owner: 'shanyan-wcx',
+        admin: ['shanyan-wcx'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

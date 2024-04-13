@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Unraid文档-系统设置 | 嬗衍的博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://shanyan-wcx.github.io/gridea//favicon.ico?v=1713004107094">
+<link rel="stylesheet" href="https://shanyan-wcx.github.io/gridea//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+前置设置
+激活系统
+进入系统后会弹出菜单请求安装Unraid Connect插件，安装完成后点击右上角头像位置，可以登录Unraid账号，选择输入购买的密钥或试用Unraid。若无法安装插件，参考下一节配置代理部分。
+
+配置代理
+由于Un..." />
+    <meta name="keywords" content="Unraid" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://shanyan-wcx.github.io/gridea/">
+        <img src="https://shanyan-wcx.github.io/gridea//images/avatar.png?v=1713004107094" class="site-logo">
+        <h1 class="site-title">嬗衍的博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://shanyan-wcx.github.io/gridea//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Unraid文档-系统设置</h2>
+            <div class="post-date">2024-04-13</div>
+            
+              <div class="feature-container" style="background-image: url('https://s2.loli.net/2023/12/10/53PnM4uaFUXovyr.webp')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<h1 id="前置设置">前置设置</h1>
+<h2 id="激活系统">激活系统</h2>
+<p>进入系统后会弹出菜单请求安装Unraid Connect插件，安装完成后点击右上角头像位置，可以登录Unraid账号，选择输入购买的密钥或试用Unraid。若无法安装插件，参考下一节配置代理部分。</p>
+<figure data-type="image" tabindex="1"><img src="https://s2.loli.net/2023/12/10/xcWsGYdZ9T2vwEM.png" alt="屏幕截图 2023-12-10 165923" loading="lazy"></figure>
+<h2 id="配置代理">配置代理</h2>
+<p>由于Unraid的应用市场需要访问Github和Docker Hub，国内网络环境可能无法正常访问，因此需要配置代理，需要在局域网中有一台安装了Clash并开启了“允许局域网连接”的设备。</p>
+<p>进入插进界面，点击安装插件，在输入框中输入<a href="https://gitee.com/ludoux/unraid-proxy-editor/raw/master/proxy.editor.plg">https://gitee.com/ludoux/unraid-proxy-editor/raw/master/proxy.editor.plg</a>，点击INSTALL，完成Proxy Editor插件安装。</p>
+<figure data-type="image" tabindex="2"><img src="https://s2.loli.net/2023/12/10/LGBi7oRvqw8cbm3.png" alt="屏幕截图 2023-12-10 165758" loading="lazy"></figure>
+<p>进入设置界面，点击Proxy Editor，配置CA代理和系统代理。配置系统代理后需要重启生效。</p>
+<p>若无法安装插件，也可以手动配置代理。打开右上角的终端窗口，编辑/root/.wgetrc文件，写入以下代码：</p>
+<pre><code>use_proxy=yes
+http_proxy=http://[你的clash设备IP]:[端口默认7890]
+https_proxy=http://[你的clash设备IP]:[端口默认7890]
+wait=10
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://s2.loli.net/2023/12/10/UYsJFjkMgyumOza.png" alt="屏幕截图 2023-12-10 165521" loading="lazy"></figure>
+<p>保存并退出，关闭终端窗口。此时，插件应该可以正常安装，可以回到上面步骤安装Proxy Editor插件来可视化配置代理。</p>
+<h2 id="切换中文显示">切换中文显示</h2>
+<p>进入TOOLS界面，点击Language，在输入框中输入<a href="https://raw.githubusercontent.com/seanzhang98/unraid_zh_CN_Beta/main/lang-zh_CN_Beta.xml">https://raw.githubusercontent.com/seanzhang98/unraid_zh_CN_Beta/main/lang-zh_CN_Beta.xml</a>，点击INSTALL，安装中文语言包。然后进入SETTINGS界面，点击Display Settings进入显示设置界面，在Language中选择“简体中文”，点击APPLY，切换显示语言为中文。</p>
+<figure data-type="image" tabindex="4"><img src="https://s2.loli.net/2023/12/10/9mGQ718iog2wxpJ.png" alt="屏幕截图 2023-12-10 165731" loading="lazy"></figure>
+<h2 id="启动阵列">启动阵列</h2>
+<p>进入主界面，选择需要加入阵列的硬盘。如果要配置奇偶校验盘，则在奇偶校验选项中选中对应硬盘。点击下方的启动来启动阵列。</p>
+<figure data-type="image" tabindex="5"><img src="https://s2.loli.net/2023/12/10/gUavEhxSCoLJHks.png" alt="屏幕截图 2023-12-10 170254" loading="lazy"></figure>
+<h2 id="添加共享文件夹">添加共享文件夹</h2>
+<p>进入共享界面，点击添加共享，输入共享名称，根据需要对修改共享设置，完成后点击添加共享即可。添加完成后，可点击新创建的共享文件夹修改SMB访问设置。</p>
+<figure data-type="image" tabindex="6"><img src="https://s2.loli.net/2023/12/10/AqOXZLFt41uE7a6.png" alt="屏幕截图 2023-12-10 171133" loading="lazy"></figure>
+<h2 id="启动docker">启动Docker</h2>
+<p>若菜单栏中没有显示Docker菜单，说明Docker功能未开启。</p>
+<p>为防止Unraid失联，在启动Docker前，需要先要修改网络设置。进入设置，点击网络设置，将启用桥接设置为“否”，点击应用。</p>
+<figure data-type="image" tabindex="7"><img src="https://s2.loli.net/2023/12/10/QmXGx8paR6SYIZ9.png" alt="屏幕截图 2023-12-10 170514" loading="lazy"></figure>
+<p>进入Docker设置，将启用Docker设置为“是”，网络类型选择macvlan，主机访问自定义网络选择“已启用”，根据需要修改Docker虚拟磁盘大小，然后点击应用启动Docker。</p>
+<figure data-type="image" tabindex="8"><img src="https://s2.loli.net/2023/12/10/PVfpwBc8JngrWIT.png" alt="屏幕截图 2023-12-10 170452" loading="lazy"></figure>
+<h1 id="安装插件">安装插件</h1>
+<p>进入应用界面，首先根据提示安装Community Applications插件。安装完成后将进入Unraid应用市场，可以根据需要安装插件或应用。</p>
+<figure data-type="image" tabindex="9"><img src="https://s2.loli.net/2023/12/10/Npx7z8U91JaEQft.png" alt="屏幕截图 2023-12-10 171245" loading="lazy"></figure>
+<h2 id="必装插件列表">必装插件列表</h2>
+<ul>
+<li>
+<p><strong>Appdata Backup</strong> —— 应用数据备份</p>
+</li>
+<li>
+<p><strong>CA Auto Update Applications</strong> —— 自动升级应用</p>
+</li>
+<li>
+<p><strong>CA Cleanup Appdata</strong> —— 无效应用数据清理</p>
+</li>
+<li>
+<p><strong>Community Applications</strong> —— 应用市场</p>
+</li>
+<li>
+<p><strong>Compose.Manager</strong> —— 支持Docker Compose</p>
+</li>
+<li>
+<p><strong>Custom Tab</strong> —— 自定义页面</p>
+</li>
+<li>
+<p><strong>Dynamix Active Streams</strong> —— 显示与控制访问连接</p>
+</li>
+<li>
+<p><strong>Dynamix Auto Fan Control</strong> —— 风扇自适应</p>
+</li>
+<li>
+<p><strong>Dynamix Cache Directories</strong> —— 目录缓存</p>
+</li>
+<li>
+<p><strong>Dynamix File Manager</strong> —— 文件管理器</p>
+</li>
+<li>
+<p><strong>Dynamix System Buttons</strong> —— 在菜单栏添加系统控制按钮</p>
+</li>
+<li>
+<p><strong>Dynamix System Information</strong> —— 显示系统信息</p>
+</li>
+<li>
+<p><strong>Dynamix System Statistics</strong> —— 显示系统状态</p>
+</li>
+<li>
+<p><strong>Dynamix System Temperature</strong> —— 显示硬件温度</p>
+</li>
+<li>
+<p><strong>Fix Common Problems</strong> —— 诊断和建议修复常见问题</p>
+</li>
+<li>
+<p><strong>FolderView</strong> —— Docker容器分组</p>
+</li>
+<li>
+<p><strong>GPU Statistics</strong> —— 显示显卡信息</p>
+</li>
+<li>
+<p><strong>GUI Search</strong> —— 在菜单栏添加界面搜索框</p>
+</li>
+<li>
+<p><strong>Intel GPU TOP</strong> —— Intel显卡驱动</p>
+</li>
+<li>
+<p><strong>ITE IT87 Driver</strong> —— 风扇控制器驱动</p>
+</li>
+<li>
+<p><strong>Proxy Editor</strong> —— 配置系统代理</p>
+</li>
+<li>
+<p><strong>Tailscale</strong> —— 内网穿透</p>
+</li>
+<li>
+<p><strong>Theme Engine</strong> —— 更换主题</p>
+</li>
+<li>
+<p><strong>Unassigned Devices</strong> —— 支持更多类型设备</p>
+</li>
+<li>
+<p><strong>Unassigned Devices Plus</strong> —— 支持更多类型设备</p>
+</li>
+<li>
+<p><strong>Unassigned Devices Preclear</strong> —— 在添加磁盘前对其进行清除</p>
+</li>
+<li>
+<p><strong>unBALANCE</strong> —— 将共享文件夹移动到其他磁盘</p>
+</li>
+<li>
+<p><strong>Unraid Connect</strong> —— 服务器管理、监控和维护平台</p>
+</li>
+<li>
+<p><strong>User Scripts</strong> —— 运行用户脚本</p>
+</li>
+</ul>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://shanyan-wcx.github.io/gridea/tag/IE8pTKHKf/" class="tag">
+                    Unraid
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://shanyan-wcx.github.io/gridea/post/xi-tong-an-zhuang/">
+                  <h3 class="post-title">
+                    Unraid文档-系统安装
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'cb6bb4e1256298132b48',
+        clientSecret: '521dca02df06350aa0eee7ef0346db195fc5692c',
+        repo: 'gridea',
+        owner: 'shanyan-wcx',
+        admin: ['shanyan-wcx'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
